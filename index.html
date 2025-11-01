@@ -11,52 +11,40 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#222}
-body {
-  background: linear-gradient(180deg,#fffaf0 0%, #fff0f5 100%);
-  display: block;
-  padding: 28px;
-  min-height: 100vh;
-}
+    body {
+      background: linear-gradient(180deg,#fffaf0 0%, #fff0f5 100%);
+      display: block;
+      padding: 28px;
+      min-height: 100vh;
+    }
     .page{width:100%;max-width:960px;background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.75));border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,0.08);overflow:hidden}
     header{padding:28px 32px;display:flex;gap:20px;align-items:center}
     .logo{width:78px;height:78px;border-radius:14px;overflow:hidden;flex-shrink:0;border:4px solid var(--glass)}
     .logo img{width:100%;height:100%;object-fit:cover}
     .title h1{margin:0;font-size:22px}
     .title p{margin:6px 0 0;color:var(--muted);font-size:14px}
-
     main{padding:24px 32px}
     .scene{min-height:260px;padding:26px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.5));margin-bottom:18px;position:relative;overflow:hidden}
-
     .scene .text{max-width:640px}
     h2{margin:0 0 8px;font-size:20px;color:var(--accent)}
     p.lead{margin:0 0 12px;font-size:16px;color:#333}
-
     .photos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
     .photos img{width:100%;height:120px;object-fit:cover;border-radius:10px;border:3px solid rgba(255,255,255,0.6)}
-
     .reveal{display:flex;align-items:center;gap:12px;margin-top:12px}
     .btn{padding:10px 14px;border-radius:10px;border:none;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
     .btn.ghost{background:transparent;border:2px solid rgba(0,0,0,0.06);color:#333}
-
     .story-line{display:flex;gap:16px;align-items:flex-start}
     .bullet{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px}
-
     footer{padding:18px 32px;background:linear-gradient(180deg,rgba(255,255,255,0.55),rgba(255,255,255,0.5));display:flex;justify-content:space-between;align-items:center}
-
-    /* hidden surprise modal */
     .modal{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(0.85);width:90%;max-width:720px;background:linear-gradient(180deg,#fff,#fff0f8);border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,0.18);padding:22px;opacity:0;pointer-events:none;transition:all 400ms cubic-bezier(.2,.9,.3,1)}
     .modal.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
     .modal .hero{display:flex;gap:14px;align-items:center}
     .modal .hero img{width:140px;height:140px;border-radius:12px;object-fit:cover;border:6px solid rgba(255,255,255,0.8)}
     .modal h3{margin:0}
-
-    /* floating animations (hearts & petals) */
     .float-wrap{pointer-events:none;position:absolute;inset:0;overflow:hidden}
     .float{position:absolute;will-change:transform,opacity}
     @keyframes floatUpSmall{0%{transform:translateY(30px) scale(0.8);opacity:0}20%{opacity:1}100%{transform:translateY(-420px) scale(1.3);opacity:0}}
     @keyframes floatSpin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-
-    /* responsive */
     @media (max-width:720px){.photos{grid-template-columns:repeat(2,1fr)}header{padding:18px}main{padding:18px}footer{padding:12px}}
   </style>
 </head>
@@ -75,7 +63,6 @@ body {
     </header>
 
     <main>
-      <!-- Intro scene (love letter style) -->
       <section class="scene" id="intro">
         <div class="float-wrap" id="float-intro"></div>
         <div class="text">
@@ -84,52 +71,36 @@ body {
           <div class="story-line">
             <div class="bullet"></div>
             <div>
-              <p>Do you remember our first coffee meet? Your ringtone - Harry Potter, Favourite Cricketer - MS Dhoni. Thats when i fell for you!!</p>
+              <p>Do you remember our first meet? Your ringtone - Harry Potter, Favourite Cricketer - MS Dhoni. Thats when i fell for you!!</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Memories -->
       <section class="scene" id="memories">
         <div class="float-wrap" id="float-mem"></div>
         <div class="text">
           <h2>Moments we kept</h2>
           <p class="lead">Here are some little snapshots — each one is a tiny bookmark of our time together.</p>
-          <div class="photos" id="photos">
-            <!-- placeholder images (you'll replace these) -->
-            <img src="img1.jpeg" alt="mem1">
-            <img src="img2.jpeg" alt="mem2">
-            <img src="img3.jpeg" alt="mem2">
-            <img src="img4.jpeg" alt="mem2">
-            <img src="img5.jpeg" alt="mem2">
-                        <img src="img6.jpeg" alt="mem2">
-            <img src="img7.jpeg" alt="mem2">
-            <img src="img8.jpeg" alt="mem2">
-            <img src="img9.jpeg" alt="mem2">
-          </div>
+          <div class="photos" id="photos"></div>
         </div>
       </section>
 
-      <!-- Playful letter -->
       <section class="scene" id="letter">
         <div class="float-wrap" id="float-letter"></div>
         <div class="text">
           <h2>A little letter</h2>
           <p class="lead">You are my sunshine when days feel grey, my partner-in-crime for silly plans, and the best friend I keep close. I love your laugh, your stubbornness, and the way you say my name.</p>
-
           <div style="margin-top:12px">
             <button class="btn" id="read-more">Read More</button>
             <button class="btn ghost" id="hide-more" style="display:none">Hide</button>
           </div>
-
           <div id="more-text" style="margin-top:12px;display:none;line-height:1.6;color:#444">
             <p>We have stamped a map with tiny adventures — each giggle a location, each hug a landmark. I hope this year brings you all the warm fuzzy moments you deserve.</p>
           </div>
         </div>
       </section>
 
-      <!-- Surprise Reveal -->
       <section class="scene" id="reveal">
         <div class="float-wrap" id="float-reveal"></div>
         <div class="text">
@@ -137,7 +108,6 @@ body {
           <p class="lead">When you're ready, press the button below and a little surprise will appear. No peeking! (Okay, a little peek is fine.)</p>
           <div class="reveal">
             <button class="btn" id="open-surprise">Open Surprise</button>
-            <!-- <button class="btn ghost" id="gift-link">Send a Gift</button> -->
           </div>
         </div>
       </section>
@@ -148,7 +118,6 @@ body {
     </footer>
   </div>
 
-  <!-- Surprise modal (hidden until opened) -->
   <div class="modal" id="modal">
     <div style="text-align:right"><button class="btn ghost" id="close-modal">Close</button></div>
     <div class="hero">
@@ -163,104 +132,113 @@ body {
     </div>
   </div>
 
-  <!-- audio element (you'll set the src in the CONFIG in the script) -->
   <audio id="audio" src="" preload="none"></audio>
 
   <script>
-    /******** CONFIG (edit these) ********/
     const CONFIG = {
       HER_NAME: 'Ananya',
-      PHOTOS: [
-        // replace with your own urls (4-5 recommended)
-        'img1.jpeg','img2.jpeg','img3.jpeg','img4.jpeg','img5.jpeg','img6.jpeg',
-        'img7.jpeg','img8.jpeg','img9.jpeg',
-      ],
-      SONG_URL: 'song_D7mFaqUu.mp3' // paste a direct mp3 file path here after you download it and host or place locally.
+      PHOTOS: ['img1.jpeg','img2.jpeg','img3.jpeg','img4.jpeg','img5.jpeg','img6.jpeg','img7.jpeg','img8.jpeg','img9.jpeg'],
+      SONG_URL: 'song_D7mFaqUu.mp3'
     };
-    /************************************/
 
     // apply names/photos
     document.getElementById('her-name').textContent = CONFIG.HER_NAME;
     document.getElementById('modal-name').textContent = CONFIG.HER_NAME;
     const photoWrap = document.getElementById('photos');
-    photoWrap.innerHTML = '';
-    CONFIG.PHOTOS.forEach(src => { const i = document.createElement('img'); i.src = src; photoWrap.appendChild(i); });
+    CONFIG.PHOTOS.forEach(src => { const i=document.createElement('img'); i.src=src; photoWrap.appendChild(i); });
     document.getElementById('logo-img').src = CONFIG.PHOTOS[0];
     document.getElementById('modal-photo').src = CONFIG.PHOTOS[0];
 
-    // audio handling
     const audio = document.getElementById('audio');
     if(CONFIG.SONG_URL) audio.src = CONFIG.SONG_URL;
     document.getElementById('play').addEventListener('click', async ()=>{
-      if(!audio.src){ alert('No song set in CONFIG. Paste a file URL into CONFIG.SONG_URL.'); return }
-      try{ await audio.play(); document.getElementById('play').textContent = 'Playing'; }catch(e){ alert('Autoplay blocked — tap to allow.'); }
+      try{ await audio.play(); document.getElementById('play').textContent='Playing'; }catch(e){ alert('Autoplay blocked — tap again to allow.'); }
     });
 
     // read more toggle
-    document.getElementById('read-more').addEventListener('click', ()=>{ document.getElementById('more-text').style.display='block'; document.getElementById('read-more').style.display='none'; document.getElementById('hide-more').style.display='inline-block'; });
-    document.getElementById('hide-more').addEventListener('click', ()=>{ document.getElementById('more-text').style.display='none'; document.getElementById('read-more').style.display='inline-block'; document.getElementById('hide-more').style.display='none'; });
+    document.getElementById('read-more').addEventListener('click', ()=>{ 
+      document.getElementById('more-text').style.display='block'; 
+      document.getElementById('read-more').style.display='none'; 
+      document.getElementById('hide-more').style.display='inline-block'; 
+    });
+    document.getElementById('hide-more').addEventListener('click', ()=>{ 
+      document.getElementById('more-text').style.display='none'; 
+      document.getElementById('read-more').style.display='inline-block'; 
+      document.getElementById('hide-more').style.display='none'; 
+    });
 
-    // surprise modal
     const modal = document.getElementById('modal');
     document.getElementById('open-surprise').addEventListener('click', ()=>{ modal.classList.add('show'); createBurst(); });
     document.getElementById('close-modal').addEventListener('click', ()=>{ modal.classList.remove('show'); });
 
-    // gift link placeholder
-    document.getElementById('gift-link').addEventListener('click', ()=>{
-      window.location.href = 'mailto:you@example.com?subject=Birthday+Gift+for+' + encodeURIComponent(CONFIG.HER_NAME);
-    });
+    // ✅ safe guard for gift link
+    const giftLink = document.getElementById('gift-link');
+    if (giftLink) {
+      giftLink.addEventListener('click', ()=>{
+        window.location.href='mailto:you@example.com?subject=Birthday+Gift+for+'+encodeURIComponent(CONFIG.HER_NAME);
+      });
+    }
 
-    // send heart (cute animation)
+    // 💖 improved Send Heart animation
     document.getElementById('heart-btn').addEventListener('click', ()=>{
-      const b = document.createElement('div'); b.textContent='💖'; b.style.position='fixed'; b.style.left='50%'; b.style.top='50%'; b.style.transform='translate(-50%,-50%) scale(0.8)'; b.style.fontSize='40px'; b.style.pointerEvents='none'; document.body.appendChild(b);
-      b.animate([{transform:'translate(-50%,-50%) scale(0.8) rotate(0deg)', opacity:1},{transform:'translate(-50%,-300%) scale(1.8) rotate(180deg)', opacity:0}],{duration:1200,easing:'cubic-bezier(.2,.8,.2,1)'});
+      const b=document.createElement('div');
+      b.textContent='💖';
+      Object.assign(b.style,{
+        position:'fixed',left:'50%',top:'50%',
+        transform:'translate(-50%,-50%) scale(0.9)',
+        fontSize:'44px',pointerEvents:'none',zIndex:9999
+      });
+      document.body.appendChild(b);
+      b.animate(
+        [
+          {transform:'translate(-50%,-50%) scale(0.9) rotate(0deg)',opacity:1},
+          {transform:'translate(-50%,-300%) scale(1.6) rotate(180deg)',opacity:0}
+        ],
+        {duration:1200,easing:'cubic-bezier(.2,.8,.2,1)'}
+      );
       setTimeout(()=>b.remove(),1400);
     });
 
-    // floating elements generator — petals & hearts
-    function spawnFloat(containerId, shapes= ['❤️','🌸'], count=8){
-      const container = document.getElementById(containerId);
+    // floating hearts/petals
+    function spawnFloat(containerId, shapes=['❤️','🌸'], count=8){
+      const container=document.getElementById(containerId);
       for(let i=0;i<count;i++){
-        const el = document.createElement('div'); el.className='float'; el.innerText = shapes[Math.floor(Math.random()*shapes.length)];
-        const size = 12 + Math.random()*36; el.style.fontSize = size+'px';
-        el.style.left = Math.random()*100 + '%'; el.style.bottom = -20 - Math.random()*60 + 'px';
-        el.style.opacity = 0.9*Math.random();
-        el.style.animation = `floatUpSmall ${6 + Math.random()*6}s linear forwards`;
-        el.style.transform = `translateY(0) rotate(${Math.random()*50-25}deg)`;
+        const el=document.createElement('div');
+        el.className='float'; el.innerText=shapes[Math.floor(Math.random()*shapes.length)];
+        const size=12+Math.random()*36;
+        el.style.fontSize=size+'px';
+        el.style.left=Math.random()*100+'%';
+        el.style.bottom=-20-Math.random()*60+'px';
+        el.style.opacity=0.9*Math.random();
+        el.style.animation=`floatUpSmall ${6+Math.random()*6}s linear forwards`;
         container.appendChild(el);
-        setTimeout(()=>el.remove(), 14000);
+        setTimeout(()=>el.remove(),14000);
       }
     }
-    // periodically spawn for each scene
     setInterval(()=>spawnFloat('float-intro',['🌸','❤️','✨'],10),1500);
     setInterval(()=>spawnFloat('float-mem',['📷','🌸','❤️'],8),1900);
     setInterval(()=>spawnFloat('float-letter',['✉️','🌿','❤️'],7),2200);
     setInterval(()=>spawnFloat('float-reveal',['🎁','💫','❤️'],10),1200);
 
-    // small confetti burst for reveal
     function createBurst(){
       for(let i=0;i<60;i++){
-        const c = document.createElement('div'); c.style.position='fixed'; c.style.left = (50 + (Math.random()*220-110))+'%'; c.style.top = (40 + Math.random()*40) + '%'; c.style.width = (6+Math.random()*8)+'px'; c.style.height = (6+Math.random()*8)+'px'; c.style.background = 'hsl(' + Math.floor(Math.random()*360) + ',70%,60%)'; c.style.borderRadius = '2px'; c.style.pointerEvents='none'; document.body.appendChild(c);
-        const dx = (Math.random()*2-1)*900; const dy = 800 + Math.random()*200;
-        c.animate([{transform:'translate(0,0) rotate(0deg)', opacity:1},{transform:'translate('+dx+'px,'+dy+'px) rotate(720deg)', opacity:0}],{duration:2000+Math.random()*1200});
+        const c=document.createElement('div');
+        c.style.position='fixed';
+        c.style.left=(50+(Math.random()*220-110))+'%';
+        c.style.top=(40+Math.random()*40)+'%';
+        c.style.width=(6+Math.random()*8)+'px';
+        c.style.height=(6+Math.random()*8)+'px';
+        c.style.background='hsl('+Math.floor(Math.random()*360)+',70%,60%)';
+        c.style.borderRadius='2px';
+        c.style.pointerEvents='none';
+        document.body.appendChild(c);
+        const dx=(Math.random()*2-1)*900; const dy=800+Math.random()*200;
+        c.animate([{transform:'translate(0,0) rotate(0deg)',opacity:1},{transform:'translate('+dx+'px,'+dy+'px) rotate(720deg)',opacity:0}],{duration:2000+Math.random()*1200});
         setTimeout(()=>c.remove(),2600);
       }
     }
 
-    // tiny accessibility: keyboard open surprise (S key)
-    document.addEventListener('keydown', (e)=>{ if(e.key.toLowerCase()==='s'){ modal.classList.add('show'); createBurst(); } });
-
-    // end of script
+    document.addEventListener('keydown', e=>{ if(e.key.toLowerCase()==='s'){ modal.classList.add('show'); createBurst(); }});
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
